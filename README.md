@@ -1,5 +1,5 @@
 # Stripe-Postman-Collection
-A postman collection of stripe implementation.
+A postman collection of stripe payment gateway implementation.
 
 You must specify your own sk_test_xxxxxxxxxxxxxxx key which you will get inside your stripe account.
 
