@@ -1,0 +1,415 @@
+{
+	"info": {
+		"_postman_id": "26a3768a-b553-4f58-a83d-6b9bfd214ec4",
+		"name": "Stripe",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Customer with card token",
+			"item": [
+				{
+					"name": "Create Customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_test_xxxxxxxxxxxxxxxxxxxx",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "description",
+									"value": "Customer for jenny.rosen@example.com,",
+									"type": "text"
+								},
+								{
+									"key": "source",
+									"value": "src_1E5zvuB2Dsa7xWQpXkyYQMha",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://api.stripe.com/v1/customers",
+							"protocol": "https",
+							"host": [
+								"api",
+								"stripe",
+								"com"
+							],
+							"path": [
+								"v1",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GetCustomer",
+			"item": [
+				{
+					"name": "Get Customer",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_test_xxxxxxxxxxxxxxxxxxxx",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "source",
+									"value": "src_1E5zvuB2Dsa7xWQpXkyYQMha",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "https://api.stripe.com/v1/customers/cus_EZL7VcxVwKymXU",
+							"protocol": "https",
+							"host": [
+								"api",
+								"stripe",
+								"com"
+							],
+							"path": [
+								"v1",
+								"customers",
+								"cus_EZL7VcxVwKymXU"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Customer Sources",
+			"item": [
+				{
+					"name": "Get Customer Sources",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_test_xxxxxxxxxxxxxxxxxxxx",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "source",
+									"value": "src_1E5zvuB2Dsa7xWQpXkyYQMha",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "https://api.stripe.com/v1/customers/cus_EZL7VcxVwKymXU/sources",
+							"protocol": "https",
+							"host": [
+								"api",
+								"stripe",
+								"com"
+							],
+							"path": [
+								"v1",
+								"customers",
+								"cus_EZL7VcxVwKymXU",
+								"sources"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create Card Token",
+			"item": [
+				{
+					"name": "Create Card Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_test_xxxxxxxxxxxxxxxxxxxx",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "card[number]",
+									"value": "4242424242424242",
+									"type": "text"
+								},
+								{
+									"key": "card[exp_month]",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "card[exp_year]",
+									"value": "2020",
+									"type": "text"
+								},
+								{
+									"key": "card[cvc]",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://api.stripe.com/v1/tokens",
+							"protocol": "https",
+							"host": [
+								"api",
+								"stripe",
+								"com"
+							],
+							"path": [
+								"v1",
+								"tokens"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Add Card to Customer",
+			"item": [
+				{
+					"name": "Add Card to a customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_test_xxxxxxxxxxxxxxxxxxxx",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "source",
+									"value": "src_1E6YX7B2Dsa7xWQpuwpmnaWg",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "source",
+									"value": "tok_1E6Z34B2Dsa7xWQpt7VYSn3O",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://api.stripe.com/v1/customers/cus_EZL7VcxVwKymXU/cards",
+							"protocol": "https",
+							"host": [
+								"api",
+								"stripe",
+								"com"
+							],
+							"path": [
+								"v1",
+								"customers",
+								"cus_EZL7VcxVwKymXU",
+								"cards"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Change default Card of a Customer",
+			"item": [
+				{
+					"name": "Change default card of a customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_test_xxxxxxxxxxxxxxxxxxxx",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "description",
+									"value": "Changing default source to charge",
+									"type": "text"
+								},
+								{
+									"key": "default_source",
+									"value": "card_1E6YrdB2Dsa7xWQpLp3sdGY7",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://api.stripe.com/v1/customers/cus_EZL7VcxVwKymXU",
+							"protocol": "https",
+							"host": [
+								"api",
+								"stripe",
+								"com"
+							],
+							"path": [
+								"v1",
+								"customers",
+								"cus_EZL7VcxVwKymXU"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Charge a Customer",
+			"item": [
+				{
+					"name": "Charge a customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_test_xxxxxxxxxxxxxxxxxxxx",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Stripe-Account",
+								"value": "cus_EZL7VcxVwKymXU",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "amount",
+									"value": "50",
+									"type": "text"
+								},
+								{
+									"key": "currency",
+									"value": "sgd",
+									"type": "text"
+								},
+								{
+									"key": "source",
+									"value": "src_1E6av2B2Dsa7xWQpdOFNE0OY",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "\"Charge for Shopping of $20\"",
+									"type": "text"
+								},
+								{
+									"key": "customer",
+									"value": "cus_EZL7VcxVwKymXU",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://api.stripe.com/v1/charges",
+							"protocol": "https",
+							"host": [
+								"api",
+								"stripe",
+								"com"
+							],
+							"path": [
+								"v1",
+								"charges"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
